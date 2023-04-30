@@ -34,5 +34,26 @@ Recently I have been working on a project where the clients has a raspberry pi l
 Because of that I knew it would be a tough task to use React, so I went with good o' reliable Mithril. This worked pretty well and I got the project done, but I started recieving a lot of complaints about it being slow. At this point my only option was to start over or I could use mithril's syntax to render to dom... and this project was born.
 &nbsp;
 
-### Examples - Basics
+### Examples - Basics (Rendering to Dom)
 
+```
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Orichalcum 1</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
+</head>
+<body>
+<script>
+	document.body.append(
+		o('h3','Hello World')
+	)
+</script>
+</body>
+</html>
+```
+
+### Examples - Classes and Event Listeners
