@@ -1,12 +1,18 @@
 ### Orichalcum
 
-Orichalcum is a Frontend Framework inspired by [Mithril](https://mithril.js.org/) and [Express](https://expressjs.com/), but with a micro twist... reduced memory and processing.
+Orichalcum is a Frontend Framework inspired by [Mithril](https://mithril.js.org/) and [Express](https://expressjs.com/), but with a micro twist... Our approach is to remove HTML from the development process and reduce memory and processing. 
 &nbsp;
 
 ### Pros and Cons
 
-Orichalcum takes a simplistic approach to rendering. Instead of using a virutal dom or shadow dom, it simply renders your JavaScript directly to the document. The **downside** is that Orichalcum doesn't support data binding like **Mithril**, but the **plus side** is that it reduces processing that obersers or rerendering require.
+Orichalcum takes a simple approach to rendering, instead of using a virutal dom or shadow dom we render directly to the document. The **plus side** is that we don't have to expend additional processing on observers or rerendering, but the **downside** is that we don't support data binding like Mithril.
 &nbsp;
+
+* Pros
+    * Reduces Processing
+    * Smaller File Size
+* Cons
+    * No Data Binding
 
 ### Size
 
@@ -17,6 +23,16 @@ Orichalcum comes 720b-2.4kb depending on the plugins you need.
 * orichalcum-plugins-fetch.min.js - 1.6kb
 * orichalcum-bundle.min.js - 2.4kb (includes: min, router, fetch)
 
-### Example - Basics
+### Why
 
+I have always been a big fan of Mithril and how it removes the HTML from the development process. I feel a framework is suppose to streamline and simplify the development process... How do you get easier than removing HTML? However, I had one complaint with Mithril... render. Mithril continually checks and renders the child nodes. This is great for data binding, but it's has always felt wasteful. Don't get me wrong, I love Mithril's data binding, but I don't want it ALL the time.
+&nbsp;
+
+Recently I have been working on a project where the clients has a raspberry pi like device (complete knock off) and they wanted an app that could display customer appointments, read off there names in the waiting room, and allow the receptionist to add appointments. So my genius big brain thought it would be a great ideal to use a bash script to start a nodejs server and option up a fullscreen chrome tab to local host. The idea wasn't the bad, but the issue was the nodejs and chrome ate up all the memory and cpu.
+&nbsp;
+
+Because of that I knew it would be a tough task to use React, so I went with good o' reliable Mithril. This worked pretty well and I got the project done, but I started recieving a lot of complaints about it being slow. At this point my only option was to start over or I could use mithril's syntax to render to dom... and this project was born.
+&nbsp;
+
+### Examples - Basics
 
