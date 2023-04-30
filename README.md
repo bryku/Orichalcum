@@ -60,7 +60,7 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 ### Examples - Multiple Children
 
 * File Example: /examples/2
-* Live Example: https://replit.com/@bryku/orichalcum-example-1#index.html
+* Live Example: https://replit.com/@bryku/orichalcum-example-2#index.html
 
 ```
 <!DOCTYPE html>
@@ -73,7 +73,10 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 <body>
 <script>
 	document.body.append(
-		o('h3','Hello World')
+		o('div',[
+			o('h3','Hello World'),
+			o('p','Pizza is life!')
+		])
 	)
 </script>
 </body>
