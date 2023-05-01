@@ -83,6 +83,10 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 
 ### Examples - Css (class, style, style)
 
+* File Example: /examples/3
+* Live Example: https://replit.com/@bryku/orichalcum-example-3#index.html
+
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,3 +108,37 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 </script>
 </body>
 </html>
+```
+
+### Examples - Events
+
+* File Example: /examples/4
+* Live Example: https://replit.com/@bryku/orichalcum-example-4#index.html
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Example - 4</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
+	<style>
+		.text-red{color: red}
+	</style>
+</head>
+<body>
+<script>
+	document.body.append(
+		o('div',[
+			o('button',{onclick: ()=>{
+				console.log('You clicked me!')
+			}},'Click Me'),
+		])
+	)
+</script>
+</body>
+</html>
+```
+
