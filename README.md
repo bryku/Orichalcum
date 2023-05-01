@@ -43,7 +43,6 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
 	<title>Orichalcum 1</title>
 	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
 </head>
@@ -66,8 +65,7 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Orichalcum 1</title>
+	<title>Orichalcum 2</title>
 	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
 </head>
 <body>
@@ -82,3 +80,27 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 </body>
 </html>
 ```
+
+### Examples - Css (class, style, style)
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example - 3</title>
+	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
+	<style>
+		.text-red{color: red}
+	</style>
+</head>
+<body>
+<script>
+	document.body.append(
+		o('div',[
+			o('h3',{class: 'text-red'},'Hello World 1'),
+			o('h3',{style: 'color: green'},'Hello World 2'),
+			o('h3',{styles: {color: 'blue'}},'Hello World 1'),
+		])
+	)
+</script>
+</body>
+</html>
