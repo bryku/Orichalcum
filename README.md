@@ -92,9 +92,6 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 <head>
 	<title>Example - 3</title>
 	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-	<style>
-		.text-red{color: red}
-	</style>
 </head>
 <body>
 <script>
@@ -122,11 +119,7 @@ Because of that I knew it would be a tough task to use React, so I went with goo
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Example - 4</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-	<style>
-		.text-red{color: red}
-	</style>
 </head>
 <body>
 <script>
