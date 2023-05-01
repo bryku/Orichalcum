@@ -114,8 +114,8 @@ Orichalcum comes 720b-2.4kb depending on the plugins you need.
 <script>
 	document.body.append(
 		o('div',[
-			o('button',{onclick: ()=>{
-				console.log('You clicked me!')
+			o('button',{onclick: (event)=>{
+				console.log('You clicked me!', event)
 			}},'Click Me'),
 		])
 	)
