@@ -23,17 +23,6 @@ Orichalcum comes 720b-2.4kb depending on the plugins you need.
 * orichalcum-plugins-fetch.min.js - 1.6kb
 * orichalcum-bundle.min.js - 2.4kb (includes: min, router, fetch)
 
-### Why
-
-I have always been a big fan of Mithril and how it removes the HTML from the development process. I feel a framework is suppose to streamline and simplify the development process... How do you get easier than removing HTML? However, I had one complaint with Mithril... render. Mithril continually checks and renders the child nodes. This is great for data binding, but it's has always felt wasteful. Don't get me wrong, I love Mithril's data binding, but I don't want it ALL the time.
-&nbsp;
-
-Recently I have been working on a project where the clients has a raspberry pi like device (complete knock off) and they wanted an app that could display customer appointments, read off there names in the waiting room, and allow the receptionist to add appointments. So my genius big brain thought it would be a great ideal to use a bash script to start a nodejs server and option up a fullscreen chrome tab to local host. The idea wasn't the bad, but the issue was the nodejs and chrome ate up all the memory and cpu.
-&nbsp;
-
-Because of that I knew it would be a tough task to use React, so I went with good o' reliable Mithril. This worked pretty well and I got the project done, but I started recieving a lot of complaints about it being slow. At this point my only option was to start over or I could use mithril's syntax to render to dom... and this project was born.
-&nbsp;
-
 ### Examples - Rendering to Dom
 
 * File Example: /examples/1
