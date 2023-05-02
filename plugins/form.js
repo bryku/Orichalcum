@@ -1,4 +1,4 @@
-j.plugins.form = function(e, v){
+o.plugins.form = function(e, v){
 	e.addEventListener('submit',(event)=>{
 		event.preventDefault();
 		let data = {};
