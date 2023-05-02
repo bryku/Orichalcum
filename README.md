@@ -29,17 +29,9 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 * Live Example: https://replit.com/@bryku/orichalcum-example-1#index.html
 
 ```
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Orichalcum 1</title>
-	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-</head>
-<body>
-<script>
-	document.body.append(
-		o('h3','Hello World')
-	)
+document.body.append(
+    o('h3','Hello World')
+)
 </script>
 </body>
 </html>
@@ -51,23 +43,12 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 * Live Example: https://replit.com/@bryku/orichalcum-example-2#index.html
 
 ```
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Orichalcum 2</title>
-	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-</head>
-<body>
-<script>
-	document.body.append(
-		o('div',[
-			o('h3','Hello World'),
-			o('p','Pizza is life!')
-		])
-	)
-</script>
-</body>
-</html>
+document.body.append(
+    o('div',[
+        o('h3','Hello World'),
+        o('p','Pizza is life!')
+    ])
+)
 ```
 
 ### Examples - Css (class, style, style)
@@ -76,24 +57,13 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 * Live Example: https://replit.com/@bryku/orichalcum-example-3#index.html
 
 ```
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Example - 3</title>
-	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-</head>
-<body>
-<script>
-	document.body.append(
-		o('div',[
-			o('h3',{class: 'text-red'},'Hello World 1'),
-			o('h3',{style: 'color: green'},'Hello World 2'),
-			o('h3',{styles: {color: 'blue'}},'Hello World 1'),
-		])
-	)
-</script>
-</body>
-</html>
+document.body.append(
+    o('div',[
+        o('h3',{class: 'text-red'},'Hello World 1'),
+        o('h3',{style: 'color: green'},'Hello World 2'),
+        o('h3',{styles: {color: 'blue'}},'Hello World 1'),
+    ])
+)
 ```
 
 ### Examples - Events
@@ -102,26 +72,13 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 * Live Example: https://replit.com/@bryku/orichalcum-example-4#index.html
 
 ```
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Example - 4</title>
-	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-</head>
-<body>
-<script>
-	document.body.append(
-		o('div',[
-			o('button',{onclick: (event)=>{
-				console.log('You clicked me!', event)
-			}},'Click Me'),
-		])
-	)
-</script>
-</body>
-</html>
+document.body.append(
+    o('div',[
+        o('button',{onclick: (event)=>{
+            console.log('You clicked me!', event)
+        }},'Click Me'),
+    ])
+)
 ```
 
 ### Examples - Router
@@ -130,39 +87,26 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 * Live Example: https://replit.com/@bryku/orichalcum-example-5#index.html
 
 ```
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Example - 5</title>
-	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-</head>
-<body>
-<script>
-	o.router(document.body,{
-		'/about': ()=>{
-			return [
-				o('h1','About Page'),
-				o('ul',[
-					o('li', o('a',{href: '/'},'Home')),
-					o('li', o('a',{href: '/about'},'About')),					
-				])
-			]
-		},
-		'/': ()=>{
-			return [
-				o('h1','Home Page'),
-				o('ul',[
-					o('li', o('a',{href: '/'},'Home')),
-					o('li', o('a',{href: '/about'},'About')),					
-				])
-			]
-		},
-	})
-</script>
-</body>
-</html>
+o.router(document.body,{
+    '/about': ()=>{
+        return [
+            o('h1','About Page'),
+            o('ul',[
+                o('li', o('a',{href: '/'},'Home')),
+                o('li', o('a',{href: '/about'},'About')),					
+            ])
+        ]
+    },
+    '/': ()=>{
+        return [
+            o('h1','Home Page'),
+            o('ul',[
+                o('li', o('a',{href: '/'},'Home')),
+                o('li', o('a',{href: '/about'},'About')),					
+            ])
+        ]
+    },
+})
 ```
 
 ### Examples - Reusing Components
@@ -171,37 +115,25 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 * Live Example: https://replit.com/@bryku/orichalcum-example-6#index.html
 
 ```
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Example - 6</title>
-	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
-</head>
-<body>
-<script>
-	let nav = function(){
-		return 	o('ul',[
-			o('li', o('a',{href: '/'},'Home')),
-			o('li', o('a',{href: '/about'},'About')),					
-		])
-	}
-	o.router(document.body,{
-		'/about': ()=>{
-			return [
-				o('h1','About Page'),
-				nav(),
-			]
-		},
-		'/': ()=>{
-			return [
-				o('h1','Home Page'),
-				nav()
-			]
-		},
-	})
-</script>
-</body>
-</html>
+let nav = function(){
+    return o('ul',[
+        o('li', o('a',{href: '/'},'Home')),
+        o('li', o('a',{href: '/about'},'About')),					
+    ])
+}
+
+o.router(document.body,{
+    '/about': ()=>{
+        return [
+            o('h1','About Page'),
+            nav(),
+        ]
+    },
+    '/': ()=>{
+        return [
+            o('h1','Home Page'),
+            nav()
+        ]
+    },
+})
 ```
