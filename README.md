@@ -138,7 +138,7 @@ o.router(document.body,{
 })
 ```
 
-### Examples - Url Parameters
+### Examples - Url & Get Parameters
 
 * File Example: /examples/7
 * Live Example: https://replit.com/@bryku/orichalcum-example-7#index.html
@@ -147,6 +147,7 @@ o.router(document.body,{
 let nav = function(){
     return o('ul',[
         o('li', o('a',{href: '/'},'Home')),
+        o('li', o('a',{href: '/?id=test'},'Home Test')),
         o('li', o('a',{href: '/users/bryku'},'Bryku')),
     ])
 }
@@ -158,9 +159,9 @@ o.router(document.body,{
             nav(),
         ]
     },
-    '/': ()=>{
+    '/': (req)=>{
         return [
-            o('h1','Home Page'),
+            o('h1','Home Page: '+ (req.get.id || '')),
             nav()
         ]
     },
