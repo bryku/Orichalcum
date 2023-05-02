@@ -137,3 +137,32 @@ o.router(document.body,{
     },
 })
 ```
+
+### Examples - Url Parameters
+
+* File Example: /examples/7
+* Live Example: https://replit.com/@bryku/orichalcum-example-7#index.html
+
+```
+let nav = function(){
+    return o('ul',[
+        o('li', o('a',{href: '/'},'Home')),
+        o('li', o('a',{href: '/users/bryku'},'Bryku')),
+    ])
+}
+
+o.router(document.body,{
+    '/users/:user': (req)=>{
+        return [
+            o('h1','User Page: '+req.parameters.user),
+            nav(),
+        ]
+    },
+    '/': ()=>{
+        return [
+            o('h1','Home Page'),
+            nav()
+        ]
+    },
+})
+```
