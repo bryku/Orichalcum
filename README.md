@@ -168,3 +168,40 @@ o.router(document.body,{
     },
 })
 ```
+
+### Examples - Fetch
+
+* File Example: /examples/8
+* Live Example: https://replit.com/@bryku/orichalcum-example-8#index.html
+
+Fetch allows you to grab data from a website. Fetch will pend and cache results, so if you have multiple elements that are fetching the same url, it will only grab it once.
+
+**Fetch Options**
+
+* url - string 
+* type - string
+    * "json" - default
+    * "text"
+* state - function(element, data) - runs before fetch is triggered
+* complete - function(element, data) - runs when data is returned
+* error - function(element, error) - runs if invalid json or unable to connect to server
+* finally - function(element) - runs at the end even if it is success or error
+
+```
+o.router(document.body,{
+    '/': (req)=>{
+        return [
+            o('h1','Users'),
+            o('ul',{
+                fetch: {
+                  url: './users.json',
+						complete: (element, data)=>{// on success
+							return data.map((user)=>{
+								return o('li',user.name)
+							})
+						},
+					}
+				},'Loading...')
+			]
+		},
+	})
