@@ -16,13 +16,7 @@ Orichalcum takes a simple approach to rendering, instead of using a virutal dom 
 
 ### Size
 
-Orichalcum comes 720b-4.4kb uncompressed depending on the plugins you need.  
-
-* orichalcum-min.js - 720bytes
-* orichalcum-plugins-router.min.js - 1.6kb
-* orichalcum-plugins-fetch.min.js - 1.6kb
-* orichalcum-plugins-form.min.js - 1.6kb
-* orichalcum-bundle.min.js - 4.4kb (includes: min, router, fetch, form)
+Orichalcum comes 3.9kb uncompressed depending on the plugins you need.  
 
 ### Examples - Rendering to Dom
 
