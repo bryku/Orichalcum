@@ -194,14 +194,15 @@ o.router(document.body,{
             o('h1','Users'),
             o('ul',{
                 fetch: {
-                  url: './users.json',
-						complete: (element, data)=>{// on success
-							return data.map((user)=>{
-								return o('li',user.name)
-							})
-						},
-					}
-				},'Loading...')
-			]
-		},
-	})
+                    url: './users.json',
+                    complete: (element, data)=>{
+                        return data.map((user)=>{
+                            return o('li',user.name)
+                        })
+                    },
+                }
+            },'Loading...')
+        ]
+    },
+})
+```
