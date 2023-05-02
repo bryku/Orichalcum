@@ -164,3 +164,44 @@ Orichalcum comes 720b-4.1kb depending on the plugins you need.
 </body>
 </html>
 ```
+
+### Examples - Reusing Components
+
+* File Example: /examples/6
+* Live Example: https://replit.com/@bryku/orichalcum-example-6#index.html
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Example - 6</title>
+	<script src="js/orichalcum-1/orichalcum-bundle.min.js"></script>
+</head>
+<body>
+<script>
+	let nav = function(){
+		return 	o('ul',[
+			o('li', o('a',{href: '/'},'Home')),
+			o('li', o('a',{href: '/about'},'About')),					
+		])
+	}
+	o.router(document.body,{
+		'/about': ()=>{
+			return [
+				o('h1','About Page'),
+				nav(),
+			]
+		},
+		'/': ()=>{
+			return [
+				o('h1','Home Page'),
+				nav()
+			]
+		},
+	})
+</script>
+</body>
+</html>
+```
