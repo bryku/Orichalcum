@@ -16,6 +16,8 @@ Orichalcum takes a simple approach to rendering, instead of using a virutal dom 
 
 ### Size
 
+* orichalcum.js - 674b (uncompressed)
+* orichalcum.min.js - 594b (uncompressed)
 * orichalcum-slim.min.js - 720b (uncompressed)
     * o() - element constructor
 * orichalcum.min.js - 3.9kb (uncompressed)
