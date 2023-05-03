@@ -35,7 +35,7 @@ This function can accept 1, 2, or 3 attributes.
 * type, text
 * type, attr, text
 
-**Type** - <button></button>
+**Type**
 
 ```
 document.body.append(
@@ -43,7 +43,7 @@ document.body.append(
 )
 ```
 
-**Text** - <button>CLICK ME</button>
+**Text**
 
 ```
 document.body.append(
@@ -51,7 +51,7 @@ document.body.append(
 )
 ```
 
-**Attributes** - <button class="text-red">CLICK ME</button>
+**Attributes**
 
 ```
 document.body.append(
@@ -59,7 +59,7 @@ document.body.append(
 )
 ```
 
-We can put all of this together to quickly create html elements.
+We can get a little crazy and use class, style, styles, and events.
 
 ```
 document.body.append(
@@ -77,7 +77,21 @@ document.body.append(
 )
 ```
 
+**Children**
 
+When using o(), we can ignore the text and directly create the children
+
+```
+document.body.append(
+    o('ul',{},[
+      o('li','Item 1'),
+      o('li','Item 2'),
+      o('li','Item 3'),
+    ])
+)
+```
+
+---
 
 
 
