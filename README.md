@@ -26,19 +26,61 @@ Orichalcum takes a simple approach to rendering, instead of using a virutal dom 
     * fetch
     * form 
 
-### Examples - Rendering to Dom
+### Examples - o(type, attribute, text/child)
 
-* File Example: /examples/1
-* Live Example: https://replit.com/@bryku/orichalcum-example-1#index.html
+We can create Elements using the **o()**.
+This function can accept 1, 2, or 3 attributes.
+
+* type
+* type, text
+* type, attr, text
+
+**Type** - <button></button>
 
 ```
 document.body.append(
-    o('h3','Hello World')
+    o('button')
 )
-</script>
-</body>
-</html>
 ```
+
+**Text** - <button>CLICK ME</button>
+
+```
+document.body.append(
+    o('button','CLICK ME')
+)
+```
+
+**Attributes** - <button class="text-red">CLICK ME</button>
+
+```
+document.body.append(
+    o('button',{class: 'text-red'},'CLICK ME')
+)
+```
+
+We can put all of this together to quickly create html elements.
+
+```
+document.body.append(
+    o('button',{
+      class: 'texts-red',
+      style: 'border: 3px solid #000',
+      styles: {
+         padding: '.3rem .6rem',
+         borderRadius: '1rem',
+      },
+      onclick: (event)=>{
+         console.log('you clicked me')
+      },
+    },'CLICK ME')
+)
+```
+
+
+
+
+
 
 ### Examples - Multiple Children
 
