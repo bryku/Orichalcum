@@ -26,7 +26,7 @@ Orichalcum takes a simple approach to rendering, instead of using a virutal dom 
     * fetch
     * form 
 
-### Examples - o(type, attribute, text/child)
+### Examples - o(type, attribute, text/child) - (string, object, string/element)
 
 We can create Elements using the **o()**.
 This function can accept 1, 2, or 3 attributes.
@@ -90,6 +90,63 @@ document.body.append(
     ])
 )
 ```
+
+### Example - o.router(target, routes) (string, object)
+
+You can only have 1 router per application.
+
+```
+let components = {};
+components.nav = () =>{
+    return o('nav',{id: 'nav'},[
+        o('a',{href: '/#test'},'home '),
+        o('a',{href: '/users'},'users '),
+		o('a',{href: '/search?name=john_doe'},'search')
+    ])
+};
+
+o.router(document.body,{
+	'/search': (req)=>{
+		req.title('Website.com / Search');
+        return [
+            o('h1','search?name='+req.get.name || ''),
+            components.nav(),
+        ]
+	},
+    '/users/:user': (req)=>{
+        req.title('Website.com / Users / '+req.parameters.user);
+        return [
+            o('h1','users/'+req.parameters.user),
+            components.nav(),
+        ]
+	},
+    '/users': (req)=>{
+        req.title('Website.com / Users');
+        return [
+            o('h1','users'),
+            components.nav(),
+			o('ul',[
+				o('li',o('a',{href: '/users/john_doe'},'John Doe')),
+				o('li',o('a',{href: '/users/jane_doe'},'Jane Doe')),
+			]),
+        ]
+    },
+    '/': (req)=>{
+        req.title('Website.com / Home');
+        return [
+            o('h1','home'),
+            components.nav(),
+            o('div',[
+                o('div',{style: 'height: 1000px'},''),
+			    o('h1',{id:'test'},'scroll to here'),
+                o('a',{href: '#nav'},'scroll up'),
+                o('div',{style: 'height: 1000px'},''),
+			])
+        ]
+    },
+});
+```
+
 
 ---
 
