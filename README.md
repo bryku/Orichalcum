@@ -95,9 +95,13 @@ document.body.append(
 
 Route supposes the following:
 
-* URL Parameters - `website.com/users/:user`
-* Get Parameters - `website.com/search?name=john_doe`
-* Title - `req.title('website.com / home page')`
+|Feature       |URL                               |Function                            |
+|:------------:|:---------------------------------|:-----------------------------------|
+|Routes        |                                  |                                    |
+|URL Parameters|`website.com/users/:user`         |req.query.user                      |
+|Get Parameters|`website.com/search?name=john_doe`|req.get.name                        |
+|Fragment      |`website.com/#nav`                |req.hash                            | 
+|Title         |                                  |req.title('website.com / home page')|
 
 **NOTE**: You can only have 1 router per application.
 
@@ -131,10 +135,10 @@ o.router(document.body,{
         return [
             o('h1','users'),
             components.nav(),
-			o('ul',[
-				o('li',o('a',{href: '/users/john_doe'},'John Doe')),
-				o('li',o('a',{href: '/users/jane_doe'},'Jane Doe')),
-			]),
+            o('ul',[
+                o('li',o('a',{href: '/users/john_doe'},'John Doe')),
+                o('li',o('a',{href: '/users/jane_doe'},'Jane Doe')),
+            ]),
         ]
     },
     '/': (req)=>{
@@ -144,10 +148,10 @@ o.router(document.body,{
             components.nav(),
             o('div',[
                 o('div',{style: 'height: 1000px'},''),
-			    o('h1',{id:'test'},'scroll to here'),
+                o('h1',{id:'test'},'scroll to here'),
                 o('a',{href: '#nav'},'scroll up'),
                 o('div',{style: 'height: 1000px'},''),
-			])
+            ])
         ]
     },
 });
