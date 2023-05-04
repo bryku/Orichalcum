@@ -93,7 +93,13 @@ document.body.append(
 
 ### Example - o.router(target, routes) (string, object)
 
-You can only have 1 router per application.
+Route supposes the following:
+
+* URL Parameters - `website.com/users/:user`
+* Get Parameters - `website.com/search?name=john_doe`
+* Title - `req.title('website.com / home page')`
+
+**NOTE**: You can only have 1 router per application.
 
 ```
 let components = {};
@@ -101,25 +107,25 @@ components.nav = () =>{
     return o('nav',{id: 'nav'},[
         o('a',{href: '/#test'},'home '),
         o('a',{href: '/users'},'users '),
-		o('a',{href: '/search?name=john_doe'},'search')
+        o('a',{href: '/search?name=john_doe'},'search')
     ])
 };
 
 o.router(document.body,{
-	'/search': (req)=>{
-		req.title('Website.com / Search');
+    '/search': (req)=>{
+        req.title('Website.com / Search');
         return [
             o('h1','search?name='+req.get.name || ''),
             components.nav(),
         ]
-	},
+    },
     '/users/:user': (req)=>{
         req.title('Website.com / Users / '+req.parameters.user);
         return [
             o('h1','users/'+req.parameters.user),
             components.nav(),
         ]
-	},
+    },
     '/users': (req)=>{
         req.title('Website.com / Users');
         return [
