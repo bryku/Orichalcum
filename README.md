@@ -93,7 +93,7 @@ document.body.append(
 
 ### Example - o.router(target, routes) (string, object)
 
-Route supposes the following:
+Callback function contains:
 
 |Feature       |URL                               |Function                            |
 |:------------:|:---------------------------------|:-----------------------------------|
@@ -101,7 +101,7 @@ Route supposes the following:
 |URL Parameters|`website.com/users/:user`         |req.query.user                      |
 |Get Parameters|`website.com/search?name=john_doe`|req.get.name                        |
 |Fragment      |`website.com/#nav`                |req.hash                            | 
-|Title         |                                  |req.title('website.com / home page')|
+|Element       |                                  |req.hash                            | 
 
 **NOTE**: You can only have 1 router per application.
 
@@ -117,21 +117,21 @@ components.nav = () =>{
 
 o.router(document.body,{
     '/search': (req)=>{
-        req.title('Website.com / Search');
+        o.title('Website.com / Search');
         return [
             o('h1','search?name='+req.get.name || ''),
             components.nav(),
         ]
     },
     '/users/:user': (req)=>{
-        req.title('Website.com / Users / '+req.parameters.user);
+        o.title('Website.com / Users / '+req.parameters.user);
         return [
             o('h1','users/'+req.parameters.user),
             components.nav(),
         ]
     },
     '/users': (req)=>{
-        req.title('Website.com / Users');
+        o.title('Website.com / Users');
         return [
             o('h1','users'),
             components.nav(),
@@ -142,7 +142,7 @@ o.router(document.body,{
         ]
     },
     '/': (req)=>{
-        req.title('Website.com / Home');
+        o.title('Website.com / Home');
         return [
             o('h1','home'),
             components.nav(),
