@@ -97,11 +97,10 @@ Callback function contains:
 
 |Feature       |URL                               |Function                            |
 |:------------:|:---------------------------------|:-----------------------------------|
-|Routes        |                                  |                                    |
 |URL Parameters|`website.com/users/:user`         |req.query.user                      |
 |Get Parameters|`website.com/search?name=john_doe`|req.get.name                        |
 |Fragment      |`website.com/#nav`                |req.hash                            | 
-|Element       |                                  |req.hash                            | 
+|Element       |                                  |req.element                         | 
 
 **NOTE**: You can only have 1 router per application.
 
