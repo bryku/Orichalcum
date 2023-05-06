@@ -14,17 +14,14 @@ Orichalcum takes a simple approach to rendering, instead of using a virutal dom 
 * Cons
     * No Data Binding
 
-### Size
+### Size (uncompressed)
 
-* orichalcum.js - 674b (uncompressed)
-* orichalcum.min.js - 594b (uncompressed)
-* orichalcum-slim.min.js - 720b (uncompressed)
-    * o() - element constructor
-* orichalcum.min.js - 3.9kb (uncompressed)
-    * o() - element constructor
-    * router
-    * fetch
-    * form 
+|File                     |Methods                   |Size  |
+|:------------------------|:-------------------------|:-----|
+|orichalcum.min.js        |o()                       |585b  |
+|orichalcum-router.min.js |o.router()                |1.6kb |
+|orichalcum-fetch.min.js  |o.fetch()                 |818b  |
+|orichalcum-bundle.min.js |o(), o.router(), o.fetch()|2.9kb |
 
 ### Examples - o(type, attribute, text/child) - (string, object, string/element)
 
