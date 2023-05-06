@@ -91,9 +91,14 @@ document.body.append(
 )
 ```
 
-### Example - o.router(target, routes) (string, object)
+### Example - o.router(element, routes) (string, object)
 
-Callback function contains:
+```
+o.router(element, {
+   '/': (req)=>{}
+})
+```
+Request or **req** is sent to the callback function, and containers the following:
 
 |Feature       |URL                               |Function                            |
 |:------------:|:---------------------------------|:-----------------------------------|
@@ -156,177 +161,25 @@ o.router(document.body,{
 });
 ```
 
+### Examples - o.request(element) (element)
+
+You can use o.request inside o.route using `req.element` as the element or you can specify any element you would like.
+
+```
+o.request(document.body)
+   .fetch('./data.json', options, type) // "json" or "text". Json is the default type, so you don't need to put it in.
+   .fetch('./data2.json',options) // you can chain as many as you need!
+   .load(()=>{ // OPTIONAL: runs before fetch (loading screen)
+       return o('h1','loading...')  
+   })
+   .status('200',(data)=>{ // REQUIRED: status uses server status messages. 200 is success
+       return o('h1','complete')
+   })
+   .status('404',(data)=>{ // OPTIONAL: This will trigger if the status code is 404.
+       return o('h1','error 404 - page not found')
+   })
+   .error((err)=>{ // REQUIRED: this is the default error handler
+      return o('h1', 'Error')
+   })
 
 ---
-
-
-
-
-### Examples - Multiple Children
-
-* File Example: /examples/2
-* Live Example: https://replit.com/@bryku/orichalcum-example-2#index.html
-
-```
-document.body.append(
-    o('div',[
-        o('h3','Hello World'),
-        o('p','Pizza is life!')
-    ])
-)
-```
-
-### Examples - Css (class, style, style)
-
-* File Example: /examples/3
-* Live Example: https://replit.com/@bryku/orichalcum-example-3#index.html
-
-```
-document.body.append(
-    o('div',[
-        o('h3',{class: 'text-red'},'Hello World 1'),
-        o('h3',{style: 'color: green'},'Hello World 2'),
-        o('h3',{styles: {color: 'blue'}},'Hello World 1'),
-    ])
-)
-```
-
-### Examples - Events
-
-* File Example: /examples/4
-* Live Example: https://replit.com/@bryku/orichalcum-example-4#index.html
-
-```
-document.body.append(
-    o('div',[
-        o('button',{onclick: (event)=>{
-            console.log('You clicked me!', event)
-        }},'Click Me'),
-    ])
-)
-```
-
-### Examples - Router
-
-* File Example: /examples/5
-* Live Example: https://replit.com/@bryku/orichalcum-example-5#index.html
-
-```
-o.router(document.body,{
-    '/about': ()=>{
-        return [
-            o('h1','About Page'),
-            o('ul',[
-                o('li', o('a',{href: '/'},'Home')),
-                o('li', o('a',{href: '/about'},'About')),					
-            ])
-        ]
-    },
-    '/': ()=>{
-        return [
-            o('h1','Home Page'),
-            o('ul',[
-                o('li', o('a',{href: '/'},'Home')),
-                o('li', o('a',{href: '/about'},'About')),					
-            ])
-        ]
-    },
-})
-```
-
-### Examples - Reusing Components
-
-* File Example: /examples/6
-* Live Example: https://replit.com/@bryku/orichalcum-example-6#index.html
-
-```
-let nav = function(){
-    return o('ul',[
-        o('li', o('a',{href: '/'},'Home')),
-        o('li', o('a',{href: '/about'},'About')),					
-    ])
-}
-
-o.router(document.body,{
-    '/about': ()=>{
-        return [
-            o('h1','About Page'),
-            nav(),
-        ]
-    },
-    '/': ()=>{
-        return [
-            o('h1','Home Page'),
-            nav()
-        ]
-    },
-})
-```
-
-### Examples - Url & Get Parameters
-
-* File Example: /examples/7
-* Live Example: https://replit.com/@bryku/orichalcum-example-7#index.html
-
-```
-let nav = function(){
-    return o('ul',[
-        o('li', o('a',{href: '/'},'Home')),
-        o('li', o('a',{href: '/?id=test'},'Home Test')),
-        o('li', o('a',{href: '/users/bryku'},'Bryku')),
-    ])
-}
-
-o.router(document.body,{
-    '/users/:user': (req)=>{
-        return [
-            o('h1','User Page: '+req.parameters.user),
-            nav(),
-        ]
-    },
-    '/': (req)=>{
-        return [
-            o('h1','Home Page: '+ (req.get.id || '')),
-            nav()
-        ]
-    },
-})
-```
-
-### Examples - Fetch
-
-* File Example: /examples/8
-* Live Example: https://replit.com/@bryku/orichalcum-example-8#index.html
-
-Fetch allows you to grab data from a website. Fetch will pend and cache results, so if you have multiple elements that are fetching the same url, it will only grab it once.
-
-**Fetch Options**
-
-* url - string 
-* type - string
-    * "json" - default
-    * "text"
-* state - function(element, data) - runs before fetch is triggered
-* complete - function(element, data) - runs when data is returned
-* error - function(element, error) - runs if invalid json or unable to connect to server
-* finally - function(element) - runs at the end even if it is success or error
-
-```
-o.router(document.body,{
-    '/': (req)=>{
-        return [
-            o('h1','Users'),
-            o('ul',{
-                fetch: {
-                    url: './users.json',
-                    complete: (element, data)=>{
-                        return data.map((user)=>{
-                            return o('li',user.name)
-                        })
-                    },
-                }
-            },'Loading...')
-        ]
-    },
-})
-```
