@@ -163,12 +163,16 @@ o.router(document.body,{
 
 ### Examples - o.request(element) (element)
 
-You can use o.request inside o.route using `req.element` as the element or you can specify any element you would like.
+**o.request** allows you to specify the specific [status code]https://www.w3schools.com/tags/ref_httpmessages.asp), but it also has a default error function as well. 
+&nbsp;
+
+
+You can use **o.request** inside **o.route** using `req.element` as the element or you can specify any element you would like.
 
 ```
 o.request(document.body)
-   .fetch('./data.json', options, type) // "json" or "text". Json is the default type, so you don't need to put it in.
-   .fetch('./data2.json',options) // you can chain as many as you need!
+   .fetch('./data1.json', false) // You can chain any number of fetches as you would like.
+   .fetch('./data2.text', false, 'text') // The default type is json, but you can specify or any like 'text'.
    .load(()=>{ // OPTIONAL: runs before fetch (loading screen)
        return o('h1','loading...')  
    })
