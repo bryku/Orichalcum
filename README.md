@@ -21,7 +21,7 @@ Orichalcum takes a simple approach to rendering, instead of using a virutal dom 
 |orichalcum.min.js        |o()                       |585b  |
 |orichalcum-router.min.js |o.router()                |1.6kb |
 |orichalcum-fetch.min.js  |o.fetch()                 |818b  |
-|orichalcum-bundle.min.js |o(), o.router(), o.fetch()|2.9kb |
+|**orichalcum-bundle.min.js**|o(), o.router(), o.fetch()|**2.9kb**|
 
 ### Examples - o(type, attribute, text/child) - (string, object, string/element)
 
